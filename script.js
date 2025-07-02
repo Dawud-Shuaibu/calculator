@@ -150,9 +150,6 @@ document.addEventListener('keydown', (event) => {
         event.key !== 'Enter'
     ) {
         event.preventDefault();
-        if (event.key === 'Enter') {
-            solve.click()
-        }
     }
 
     switch (event.key) {
@@ -220,10 +217,8 @@ document.addEventListener('keydown', (event) => {
             event.preventDefault();
             add.click();
         break;
+        case 'Enter':
+            event.preventDefault();
+            solve.click();
     }
 })
-
-let input1 = document.getElementById('input1');
-let input2 = document.getElementById('input2');
-let method = document.getElementById('method');
-let submit = document.getElementById('submit');
