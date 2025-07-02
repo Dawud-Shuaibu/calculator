@@ -10,7 +10,7 @@ This calculator supports basic arithmetic operations: addition, subtraction, mul
 - Clear and delete functions
 - Handles decimal numbers
 
-![Screenshot](images/calculator-ui.png)
+[Screenshot](images/calculator-ui.png)
 
 
 ## Keyboard Shortcuts
