@@ -1,3 +1,4 @@
+let state = document.getElementById('calc-state');
 let display = document.getElementById('display');
 let clear = document.getElementById('clear');
 let del = document.getElementById('delete');
@@ -26,7 +27,10 @@ window.addEventListener('load', () => {
 })
 
 clear.addEventListener('click', () => {
+    state.innerText = '';
     display.value = null;
+    first_num = null;
+    second_num = null;
     display.focus();
 })
 
@@ -92,51 +96,55 @@ deciPoint.addEventListener('click', () => {
 })
 
 divide.addEventListener('click', () => {
-    first_num = display.value;
+    first_num = parseFloat(display.value);
     operation = 'divide';
+    state.innerText = first_num + ' /';
     display.value = null;
     display.focus();
 })
 
 multiply.addEventListener('click', () => {
-    first_num = display.value;
+    first_num = parseFloat(display.value);
     operation = 'multiply';
+    state.innerText = first_num + ' *';
     display.value = null;
     display.focus();
 })
 
 subtract.addEventListener('click', () => {
-    first_num = display.value;
+    first_num = parseFloat(display.value);
     operation = 'subtract';
+    state.innerText = first_num + ' -';
     display.value = null;
     display.focus();
 })
 
 add.addEventListener('click', (event) => {
-    first_num = display.value;
+    first_num = parseFloat(display.value);
     operation = 'add';
+    state.innerText = first_num + ' +';
     display.value = null;
     display.focus();
 })
 
 solve.addEventListener('click', (event) => {
-    second_num = display.value;
+    second_num = parseFloat(display.value);
     if (first_num !== null && second_num !== null && operation !== null) {
-        let num1 = parseFloat(first_num);
-        let num2 = parseFloat(second_num);
+
         if (operation === 'divide') {
-            display.value = num1 / num2;
+            display.value = first_num / second_num;
+            state.innerText += ' ' + second_num + ' = ' + display.value;
         } else if (operation === 'multiply') {
-            display.value = num1 * num2;
+            display.value = first_num * second_num;
+            state.innerText += ' ' + second_num + ' = ' + display.value;
         } else if (operation === 'subtract') {
-            display.value = num1 - num2;
+            display.value = first_num - second_num;
+            state.innerText += ' ' + second_num + ' = ' + display.value;
         } else if (operation === 'add') {
-            display.value = num1 + num2;
+            display.value = first_num + second_num;
+            state.innerText += ' ' + second_num + ' = ' + display.value;
         }
     }
-    first_num = null;
-    second_num = null;
-    operation = null;
     display.focus();
 })
 

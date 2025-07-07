@@ -12,8 +12,18 @@ body {
     margin-top: 18vh;
 }
 
+#calc-state {
+    height: 20px;
+    padding: 5px 20px 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #000;
+    text-align: right;
+    margin: 0;
+}
+
 #display {
-    padding: 20px 10px;
+    padding: 5px 10px 15px;
     width: 295px;
     height: 58.2px;
     margin: 0;
