@@ -172,3 +172,19 @@ body {
 #equal:hover {
     background-color: rgb(0, 0, 255);
 }
+
+@media (min-width: 375px) {
+    .box {
+        margin-top: 13vh;
+    }
+}
+
+@media (min-width: 360px) {
+    .box {
+        margin-top: 12vh;
+    }
+
+    .buttons-box {
+        height: 78.6%;
+    }
+}
