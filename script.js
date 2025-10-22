@@ -1,3 +1,67 @@
+let theme = document.getElementById('theme-select');
+let colorMode = localStorage.getItem('colorMode');
+
+if (colorMode === 'windowDefault') {
+    theme.value = 'windowDefault';
+} else if (colorMode === 'light') {
+    theme.value = 'light';
+} else if (colorMode === 'dark') {
+    theme.value = 'dark';
+}
+
+// This is to specify which theme to apply when the page loads for the first time
+window.addEventListener('load', () => {
+    if (theme.value === 'windowDefault' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('darkmode');
+    } else if (theme.value === 'windowDefault' && !window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (document.body.classList.contains('darkmode')) {
+            document.body.classList.remove('darkmode');
+        }
+    } else if (theme.value === 'light' && document.body.classList.contains('darkmode')) {
+        document.body.classList.remove('darkmode');
+    } else if (theme.value === 'dark' && !document.body.classList.contains('darkmode')) {
+        document.body.classList.add('darkmode');
+    }
+})
+
+// When window default theme option is selected
+theme.addEventListener('change', () => {
+    if (theme.value === 'windowDefault') {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches && !document.body.classList.contains('darkmode')) {
+            document.body.classList.add('darkmode');
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches && document.body.classList.contains('darkmode')) {
+            return;
+        } else if (!window.matchMedia('(prefers-color-scheme: dark)').matches && document.body.classList.contains('darkmode')) {
+            document.body.classList.remove('darkmode');
+        } else if (!window.matchMedia('(prefers-color-scheme: dark)').matches && !document.body.classList.contains('darkmode')) {
+            return;
+        }
+    }
+    localStorage.setItem('colorMode', 'windowDefault');
+})
+
+// When the browser window theme is changed
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (theme.value === 'windowDefault' && document.body.classList.contains('darkmode')) {
+        document.body.classList.remove('darkmode');
+        localStorage.setItem('colorMode', 'windowDefault');
+    } else if (theme.value === 'windowDefault' && !document.body.classList.contains('darkmode')) {
+        document.body.classList.add('darkmode');
+        localStorage.setItem('colorMode', 'windowDefault');
+    }
+})
+
+// When light or dark mode option is selected
+theme.addEventListener('change', () => {
+    if (theme.value === 'light' && document.body.classList.contains('darkmode')) {
+        document.body.classList.remove('darkmode');
+        localStorage.setItem('colorMode', 'light');
+    } else if (theme.value === 'dark' && !document.body.classList.contains('darkmode')) {
+        document.body.classList.add('darkmode');
+        localStorage.setItem('colorMode', 'dark');
+    }
+})
+
 let state = document.getElementById('calc-state');
 let display = document.getElementById('display');
 let clear = document.getElementById('clear');
@@ -28,71 +92,155 @@ window.addEventListener('load', () => {
 
 clear.addEventListener('click', () => {
     state.innerText = '';
-    display.value = null;
+    display.value = '';
     first_num = null;
     second_num = null;
     display.focus();
 })
 
 del.addEventListener('click', () => {
-    display.value = display.value.slice(0, -1);
+    if (first_num !== null && second_num !== null && operation !== null) {
+        state.innerText = '';
+        display.value = '';
+        operation = null;
+        first_num = null;
+        second_num = null;
+    } else {
+        display.value = display.value.slice(0, -1);
+    }
+
+    // Automatic font increasing during the characters length reduction
+    switch (display.value.length) {
+        case 15: 
+            display.style.fontSize = '34px';
+        break;
+        case 14: 
+            display.style.fontSize = '36px';
+        break
+        case 13: 
+            display.style.fontSize = '39px';
+        break;
+        case 12: 
+            display.style.fontSize = '42px';
+        break;
+        case 11: 
+            display.style.fontSize = '46px';
+        break;
+        default: 10  
+            display.style.fontSize = '50px';
+    }
     display.focus();
 })
 
+// Automatic font decreasing when the characters length increases
+function autoFontDecrease() {
+    switch (display.value.length) {
+        case 11:
+            display.style.fontSize = '46px';
+        break;
+        case 12:
+            display.style.fontSize = '42px';
+        break;
+        case 13:
+            display.style.fontSize = '39px';
+        break;
+        case 14:
+            display.style.fontSize = '36px';
+        break;
+        case 15:
+            display.style.fontSize = '34px';
+        break;
+        case 16:
+            display.style.fontSize = '32px';
+    }
+}
 
 one.addEventListener('click', () => {
-    display.value += '1';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '1';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 two.addEventListener('click', () => {
-    display.value += '2';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '2';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 three.addEventListener('click', () => {
-    display.value += '3';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '3';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 four.addEventListener('click', () => {
-    display.value += '4';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '4';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 five.addEventListener('click', () => {
-    display.value += '5';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '5';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 six.addEventListener('click', () => {
-    display.value += '6';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '6';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 seven.addEventListener('click', () => {
-    display.value += '7';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '7';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 eight.addEventListener('click', () => {
-    display.value += '8';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '8';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 nine.addEventListener('click', () => {
-    display.value += '9';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '9';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 zero.addEventListener('click', () => {
-    display.value += '0';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '0';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 deciPoint.addEventListener('click', () => {
-    display.value += '.';
-    display.focus();
+    if (display.value.length < 16) {
+        display.value += '.';
+        display.focus();
+        autoFontDecrease();
+    }
 })
 
 divide.addEventListener('click', () => {
@@ -119,7 +267,7 @@ subtract.addEventListener('click', () => {
     display.focus();
 })
 
-add.addEventListener('click', (event) => {
+add.addEventListener('click', () => {
     first_num = parseFloat(display.value);
     operation = 'add';
     state.innerText = first_num + ' +';
@@ -127,23 +275,42 @@ add.addEventListener('click', (event) => {
     display.focus();
 })
 
-solve.addEventListener('click', (event) => {
+solve.addEventListener('click', () => {
     second_num = parseFloat(display.value);
     if (first_num !== null && second_num !== null && operation !== null) {
-
         if (operation === 'divide') {
             display.value = first_num / second_num;
-            state.innerText += ' ' + second_num + ' = ' + display.value;
+            state.innerText = first_num + ' / ' + second_num;
         } else if (operation === 'multiply') {
             display.value = first_num * second_num;
-            state.innerText += ' ' + second_num + ' = ' + display.value;
+            state.innerText = first_num + ' * ' + second_num;
         } else if (operation === 'subtract') {
             display.value = first_num - second_num;
-            state.innerText += ' ' + second_num + ' = ' + display.value;
+            state.innerText = first_num + ' - ' + second_num;
         } else if (operation === 'add') {
             display.value = first_num + second_num;
-            state.innerText += ' ' + second_num + ' = ' + display.value;
+            state.innerText = second_num + ' + ' + first_num;
         }
+    }
+    switch (display.value.length) {
+        case 11:
+            display.style.fontSize = '46px';
+        break;
+        case 12:
+            display.style.fontSize = '42px';
+        break;
+        case 13:
+            display.style.fontSize = '38px';
+        break;
+        case 14:
+            display.style.fontSize = '34px';
+        break;
+        case 15:
+            display.style.fontSize = '32px';
+        break;
+        case 16:
+            display.style.fontSize = '30px';
+        break;
     }
     display.focus();
 })
@@ -151,19 +318,26 @@ solve.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
     if (
         event.key !== 'F5' && 
-        event.key !== 'Backspace' && 
         event.key !== 'Tab' && 
+        event.key !== '0' && event.key !== '-' && event.key !== '=' && 
         event.key !== 'Home' && event.key !== 'End' && 
         event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && 
-        event.key !== 'Enter'
+        event.key !== 'Ctrl'
     ) {
         event.preventDefault();
     }
-
     switch (event.key) {
-        case 'C', 'c':
+        case 'C':
             event.preventDefault();
             clear.click();
+        break;
+        case 'c':
+            event.preventDefault();
+            clear.click();
+        break;
+        case 'Backspace': 
+            event.preventDefault();
+            del.click();
         break;
         case '1':
             event.preventDefault();
