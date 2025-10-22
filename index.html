@@ -8,9 +8,18 @@
 </head>
 <body>
 
+    <div class="theme-menu">
+        <p class="color-mode-text">Color Mode</p>
+        <select name="theme-select" id="theme-select">
+            <option value="windowDefault">Window Default</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
+
     <div class="box">
         <p id="calc-state"></p>
-        <input type="text" id="display">
+        <input type="text" id="display" inputmode="none" autocomplete="off" spellcheck="false">
         <div class="buttons-box">
             <br>
             <button id="clear">C</button>

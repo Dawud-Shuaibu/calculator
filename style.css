@@ -1,15 +1,82 @@
+:root {
+    --body-color: hsl(197, 47%, 93%);
+    --text-color: #000;
+    --theme-menu-bgcolor: #fff;
+    --theme-select-bgcolor: #fff;
+    --box-bgcolor: #fff;
+    --calc-state-and-display-bgcolor: #fff;
+    --caret-color: blue;
+    --buttons-box-bgcolor: rgb(240, 243, 244);
+    --buttons-bgcolor: #fff;
+    --buttons-hover-bgcolor: rgb(243, 243, 243);
+    --dmsa-buttons-bgcolor: rgb(243, 243, 243);
+    --dmsa-buttons-hover-bgcolor: #fff;
+}
+
+.darkmode {
+    --body-color: hsl(0, 0%, 15%);
+    --text-color: #fff;
+    --theme-menu-bgcolor: hsl(0, 0%, 20%);
+    --theme-select-bgcolor: hsl(0, 0%, 15%);
+    --box-bgcolor: hsl(0, 0%, 20%);
+    --calc-state-and-display-bgcolor: hsl(0, 0%, 20%);
+    --caret-color: #fff;
+    --buttons-box-bgcolor: hsl(0, 0%, 15%);
+    --buttons-bgcolor: hsl(0, 0%, 25%);
+    --buttons-hover-bgcolor: hsl(0, 0%, 18%);
+    --dmsa-buttons-bgcolor: hsl(0, 0%, 18%);
+    --dmsa-buttons-hover-bgcolor: hsl(0, 0%, 25%);
+}
+
+* {
+    color: var(--text-color);
+}
+
 body {
-    background-color: hsl(197, 47%, 93%);
+    background-color: var(--body-color);
+}
+
+.theme-menu {
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: var(--theme-menu-bgcolor);
+    box-shadow: 0 0 5px 1px #000;
+}
+
+.color-mode-text {
+    font-family: 'Segoe UI';
+    font-size: 17px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0;
+}
+
+#theme-select {
+    margin-top: 10px;
+    width: 130px;
+    height: 35px;
+    padding: 0px 5px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 3px #000;
+    border-radius: 5px;
+    background-color: var(--theme-select-bgcolor);
 }
 
 .box {
+    position: absolute;
+    top: 4vh;
     justify-self: center;
     width: 325px;
-    height: 485px;
-    box-shadow: 0 0 2px #000;
+    height: 484px;
+    box-shadow: 0 0 5px 1px #000;
     background-color: #fff;
     border-radius: 7px;
-    margin-top: 18vh;
+    background-color: var(--box-bgcolor);
 }
 
 #calc-state {
@@ -17,9 +84,11 @@ body {
     padding: 5px 20px 0 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
-    color: #000;
     text-align: right;
     margin: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background-color: var(--calc-state-and-display-bgcolor);
 }
 
 #display {
@@ -33,7 +102,10 @@ body {
     border-top-right-radius: 7px;
     font-size: 50px;
     direction: rtl;
-    caret-color: blue;
+    caret-color: var(--caret-color);
+    background-color: var(--calc-state-and-display-bgcolor);
+    font-family: 'Segoe UI';
+    font-weight: 200px;
 }
 
 .buttons-box {
@@ -41,9 +113,9 @@ body {
     height: 78.8%;
     padding-left: 32px;
     gap: 7px;
-    background-color: rgb(240, 243, 244);
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
+    background-color: var(--buttons-box-bgcolor);
 }
 
 #clear {
@@ -51,16 +123,11 @@ body {
     height: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 17px;
-    color: #000;
     border: 0;
     outline: none;
     box-shadow: 0 0 1px #000;
-    background-color: #fff;
+    background-color: var(--buttons-bgcolor);
     border-radius: 3px;
-}
-
-#clear:hover {
-    background-color: rgb(243, 243, 243);
 }
 
 #delete {
@@ -68,16 +135,20 @@ body {
     height: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 17px;
-    color: #000;
     border: 0;
     outline: none;
     box-shadow: 0 0 1px #000;
-    background-color: #fff;
+    background-color: var(--buttons-bgcolor);
     border-radius: 3px;
 }
 
-#delete:hover {
-    background-color: rgb(243, 243, 243);
+#clear:hover, #delete:hover {
+    background-color: var(--buttons-hover-bgcolor)
+}
+
+.darkmode #clear, 
+.darkmode #delete {
+    box-shadow: 0 0 3px #000;
 }
 
 #seven, 
@@ -98,7 +169,7 @@ body {
     border: 0;
     outline: none;
     box-shadow: 0 0 1px #000;
-    background-color: #fff;
+    background-color: var(--buttons-bgcolor);
     border-radius: 3px;
 }
 
@@ -112,7 +183,20 @@ body {
 #two:hover, 
 #three:hover, 
 #point:hover {
-    background-color: rgb(243, 243, 243);
+    background-color: var(--buttons-hover-bgcolor);
+}
+
+.darkmode #seven, 
+.darkmode #eight, 
+.darkmode #nine, 
+.darkmode #four, 
+.darkmode #five, 
+.darkmode #six, 
+.darkmode #one, 
+.darkmode #two, 
+.darkmode #three, 
+.darkmode #point {
+    box-shadow: 0 0 3px #000;
 }
 
 #divide, 
@@ -127,7 +211,7 @@ body {
     border: 0;
     outline: none;
     box-shadow: 0 0 1px #000;
-    background-color: rgb(243, 243, 243);
+    background-color: var(--dmsa-buttons-bgcolor);
     border-radius: 3px;
 }
 
@@ -135,7 +219,14 @@ body {
 #multiply:hover, 
 #subtract:hover, 
 #addition:hover {
-    background-color: #fff;
+    background-color: var(--dmsa-buttons-hover-bgcolor);
+}
+
+.darkmode #divide, 
+.darkmode #multiply, 
+.darkmode #subtract, 
+.darkmode #add {
+    box-shadow: 0 0 3px #000;
 }
 
 #zero {
@@ -147,12 +238,16 @@ body {
     border: 0;
     outline: none;
     box-shadow: 0 0 1px #000;
-    background-color: #fff;
+    background-color: var(--buttons-bgcolor);
     border-radius: 3px;
 }
 
 #zero:hover {
-    background-color: rgb(243, 243, 243);
+    background-color: var(--buttons-hover-bgcolor);
+}
+
+.darkmode #zero {
+    box-shadow: 0 0 3px #000;
 }
 
 #equal {
@@ -165,12 +260,16 @@ body {
     border: 0;
     outline: none;
     box-shadow: 0 0 1px #000;
-    background-color: rgba(0, 0, 255, 0.800);
+    background-color: rgba(0, 0, 255);
     border-radius: 3px;
 }
 
 #equal:hover {
-    background-color: rgb(0, 0, 255);
+    background-color: rgb(0, 0, 175);
+}
+
+.darkmode #equal {
+    box-shadow: 0 0 3px #000;
 }
 
 @media (min-width: 375px) {
