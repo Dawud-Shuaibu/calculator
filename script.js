@@ -112,21 +112,24 @@ del.addEventListener('click', () => {
     // Automatic font increasing during the characters length reduction
     switch (display.value.length) {
         case 15: 
-            display.style.fontSize = '34px';
+            display.style.fontSize = '30px';
         break;
         case 14: 
-            display.style.fontSize = '36px';
+            display.style.fontSize = '32px';
         break
         case 13: 
-            display.style.fontSize = '39px';
+            display.style.fontSize = '35px';
         break;
         case 12: 
-            display.style.fontSize = '42px';
+            display.style.fontSize = '38px';
         break;
         case 11: 
+            display.style.fontSize = '42px';
+        break;
+        case 10: 
             display.style.fontSize = '46px';
         break;
-        default: 10  
+        default: 
             display.style.fontSize = '50px';
     }
     display.focus();
@@ -135,23 +138,26 @@ del.addEventListener('click', () => {
 // Automatic font decreasing when the characters length increases
 function autoFontDecrease() {
     switch (display.value.length) {
-        case 11:
+        case 10:
             display.style.fontSize = '46px';
         break;
-        case 12:
+        case 11:
             display.style.fontSize = '42px';
         break;
+        case 12:
+            display.style.fontSize = '38px';
+        break;
         case 13:
-            display.style.fontSize = '39px';
+            display.style.fontSize = '35px';
         break;
         case 14:
-            display.style.fontSize = '36px';
+            display.style.fontSize = '32px';
         break;
         case 15:
-            display.style.fontSize = '34px';
+            display.style.fontSize = '30px';
         break;
         case 16:
-            display.style.fontSize = '32px';
+            display.style.fontSize = '29px';
     }
 }
 
@@ -293,24 +299,29 @@ solve.addEventListener('click', () => {
         }
     }
     switch (display.value.length) {
-        case 11:
-            display.style.fontSize = '46px';
-        break;
-        case 12:
-            display.style.fontSize = '42px';
-        break;
-        case 13:
-            display.style.fontSize = '38px';
-        break;
-        case 14:
-            display.style.fontSize = '34px';
+        case 16:
+            display.style.fontSize = '29px';
         break;
         case 15:
-            display.style.fontSize = '32px';
-        break;
-        case 16:
             display.style.fontSize = '30px';
         break;
+        case 14:
+            display.style.fontSize = '32px';
+        break;
+        case 13:
+            display.style.fontSize = '35px';
+        break;
+        case 12:
+            display.style.fontSize = '38px';
+        break;
+        case 11:
+            display.style.fontSize = '42px';
+        break;
+        case 10: 
+            display.style.fontSize = '46px';
+        break;
+        default: 
+            display.style.fontSize = '50px';
     }
     display.focus();
 })
@@ -319,7 +330,6 @@ document.addEventListener('keydown', (event) => {
     if (
         event.key !== 'F5' && 
         event.key !== 'Tab' && 
-        event.key !== '0' && event.key !== '-' && event.key !== '=' && 
         event.key !== 'Home' && event.key !== 'End' && 
         event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && 
         event.key !== 'Ctrl'
@@ -327,11 +337,11 @@ document.addEventListener('keydown', (event) => {
         event.preventDefault();
     }
     switch (event.key) {
-        case 'C':
+        case 'C': 
             event.preventDefault();
             clear.click();
         break;
-        case 'c':
+        case 'c': 
             event.preventDefault();
             clear.click();
         break;
@@ -339,67 +349,71 @@ document.addEventListener('keydown', (event) => {
             event.preventDefault();
             del.click();
         break;
-        case '1':
+        case '1': 
             event.preventDefault();
             one.click();
         break;
-        case '2':
+        case '2': 
             event.preventDefault();
             two.click();
         break;
-        case '3':
+        case '3': 
             event.preventDefault();
             three.click();
         break;
-        case '4':
+        case '4': 
             event.preventDefault();
             four.click();
         break;
-        case '5':
+        case '5': 
             event.preventDefault();
             five.click();
         break;
-        case '6':
+        case '6': 
             event.preventDefault();
             six.click();
         break;
-        case '7':
+        case '7': 
             event.preventDefault();
             seven.click();
         break;
-        case '8':
+        case '8': 
             event.preventDefault();
             eight.click();
         break;
-        case '9':
+        case '9': 
             event.preventDefault();
             nine.click();
         break;
-        case '0':
+        case '0': 
             event.preventDefault();
             zero.click();
         break;
-        case '.':
+        case '.': 
             event.preventDefault();
             deciPoint.click();
         break;
-        case '/':
+        case '/': 
             event.preventDefault();
             divide.click();
         break;
-        case '*':
+        case '*': 
             event.preventDefault();
             multiply.click();
         break;
-        case '-':
+        case '-': 
             event.preventDefault();
             subtract.click();
         break;
-        case '+':
+        case '+': 
             event.preventDefault();
             add.click();
         break;
-        case 'Enter':
+        case '=': 
+            event.preventDefault();
+            solve.click();
+        break;
+        case 'Enter': 
             event.preventDefault();
             solve.click();
     }

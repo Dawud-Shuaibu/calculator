@@ -57,7 +57,7 @@ body {
 
 #theme-select {
     margin-top: 10px;
-    width: 130px;
+    width: 137px;
     height: 35px;
     padding: 0px 5px;
     border: none;
@@ -91,7 +91,7 @@ body {
 }
 
 #display {
-    padding: 5px 10px 15px;
+    padding: 5px 15px 15px;
     width: 295px;
     height: 58.2px;
     margin: 0;
@@ -107,9 +107,8 @@ body {
 }
 
 .buttons-box {
-    width: 90%;
-    height: 78.8%;
-    padding-left: 32px;
+    height: 381px;
+    padding: 0px 32px;
     gap: 7px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
@@ -117,7 +116,7 @@ body {
 }
 
 #clear {
-    width: 123.5px;
+    width: 125px;
     height: 50px;
     font-size: 17px;
     border: 0;
@@ -157,7 +156,7 @@ body {
 #two, 
 #three, 
 #point {
-    width: 60px;
+    width: 59.54px;
     height: 50px;
     margin-top: 10px;
     font-size: 17px;
@@ -212,7 +211,7 @@ body {
 #divide:hover, 
 #multiply:hover, 
 #subtract:hover, 
-#addition:hover {
+#add:hover {
     background-color: var(--dmsa-buttons-hover-bgcolor);
 }
 
@@ -224,7 +223,7 @@ body {
 }
 
 #zero {
-    width: 124px;
+    width: 124.5px;
     height: 50px;
     margin-top: 10px;
     font-size: 17px;
@@ -244,7 +243,7 @@ body {
 }
 
 #equal {
-    width: 251px;
+    width: 254px;
     height: 50px;
     margin-top: 10px;
     font-size: 17px;
@@ -273,9 +272,5 @@ body {
 @media (min-width: 360px) {
     .box {
         margin-top: 12vh;
-    }
-
-    .buttons-box {
-        height: 78.6%;
     }
 }
