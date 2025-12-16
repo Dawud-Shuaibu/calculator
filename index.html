@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Dawud, Shuaibu, Calculator, Arithmetic">
+    <title>Calculator</title>
+    <link rel="shortcut icon" href="./images/calculator.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <header>
+        <h4>Calculator Web</h4>
+        <button id="menu-button"  title="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+            </svg>
+        </button>
+    </header>
+
+    <div id="menu">
+        <h2>Menu</h2>
+        <button id="close-menu-btn" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+            </svg>
+        </button>
+        <ul>
+            <li class="website">
+                <a href="#" target="_blank">Website 
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"/>
+                    </svg>
+                </a>
+            </li>
+            <li class="report-issue" title="https://github.com/Dawud-Shuaibu/calculator/issues/new">
+                <a href="https://github.com/Dawud-Shuaibu/calculator/issues/new" target="_blank">Report Issue 
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"/>
+                    </svg>
+                </a>
+            </li>
+            <li class="contribute" title="https://github.com/Dawud-Shuaibu/calculator/blob/main/CONTRIBUTION.md">
+                <a href="https://github.com/Dawud-Shuaibu/calculator/blob/main/CONTRIBUTION.md" target="_blank">Contribute 
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"/>
+                    </svg>
+                </a>
+            </li>
+            <li class="theme">
+                <label for="theme-select">Theme: </label>
+                <!-- Theme Options -->
+                <select name="theme-select" id="theme-select">
+                    <option value="windowDefault">Window Default</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </li>
+            <li id="about">About 
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+                </svg>
+            </li>
+        </ul>
+
+        <div id="about-content">
+            <button id="back-btn" title="Back">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/>
+                </svg>
+            </button>
+            <h3>Developer</h3>
+            <img src="./images/dawud_profile.jpg" alt="Dawud Shuaibu">
+            <p>Dawud Shuaibu</p>
+            <a href="https://dawud-shuaibu.github.io/portfolio/" target="_blank">Website</a>
+            <footer>&copy; 2025. Dawud Shuaibu</footer>
+        </div>
+    </div>
+    
+    <script src="./js/navigation.js"></script>
+    <script src="./js/themeHandler.js"></script>
+
+    <!-- Main calculator -->
+
+    <main class="box">
+        <p id="calc-state"></p>     <!-- Showing the state of ongoing and processed calculations -->
+        <p id="display" contenteditable="true" inputmode="none" spellcheck="false" autocorrect="off" autocapitalize="off"></p>
+        <!-- Calculator Buttons -->
+        <div class="buttons-box">
+            <button id="clear">C</button>
+            <button id="delete">Del</button>
+            <button id="seven" value="7">7</button>
+            <button id="eight" value="8">8</button>
+            <button id="nine" value="9">9</button>
+            <button id="divide" value="/">/</button>
+            <button id="four" value="4">4</button>
+            <button id="five" value="5">5</button>
+            <button id="six" value="6">6</button>
+            <button id="multiply" value="*">X</button>
+            <button id="one" value="1">1</button>
+            <button id="two" value="2">2</button>
+            <button id="three" value="3">3</button>
+            <button id="subtract" value="-">-</button>
+            <button id="zero" value="0">0</button>
+            <button id="point" value=".">.</button>
+            <button id="add" value="+">+</button>
+            <button type="submit" id="equal" value="=">=</button>  
+        </div>
+    </main>
+
+    <footer><span>&copy; 2025. Dawud Dev</span> | <a href="https://dawud-shuaibu.github.io/portfolio/">Developer Page</a></footer>
+    
+    <script src="./js/main.js"></script>
+    
+</body>
+</html>
