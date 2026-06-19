@@ -24,17 +24,20 @@ function buttonsInit() {
     numericDigits.forEach((digit) => {
         digit.addEventListener('click', (event) => {
             const digitValue = event.target.getAttribute('value');
-            if (display.innerText.length < 16) {
-                if (calcCompleted === true) reset();
-                switch (digitValue) {
-                    case '.': 
-                        if (display.innerText === '') 
-                            display.innerText += '0.';
-                        else if (!display.innerText.includes('.')) 
-                            display.innerText += '.';
-                    break;
-                    default: display.innerText += digitValue; break;
-                }
+            if (calcCompleted === true) reset();
+            switch (digitValue) {
+                case '.': 
+                    if (display.innerText === '') 
+                        display.innerText += '0.';
+                    else if (!display.innerText.includes('.')) 
+                        display.innerText += '.';
+                    else if (display.innerText.length === 16) 
+                        display.innerText += '.';
+                break;
+                default: 
+                    if (display.innerText.length < 16) 
+                        display.innerText += digitValue;
+                break;
             }
         });
     });

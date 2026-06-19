@@ -91,12 +91,7 @@ function solver(operType) {
     
     const result = operator[operType](firstNum, secondNum);
 
-    if (firstNum > secondNum) 
-        state.innerText = `${firstNum} ${symbols[operType]} ${secondNum} = `;
-    else if (secondNum > firstNum && operType !== 'subtract') 
-        state.innerText = `${secondNum} ${symbols[operType]} ${firstNum} = `;
-    else if (secondNum > firstNum && operType === 'subtract') 
-        state.innerText = `${firstNum} ${symbols[operType]} ${secondNum} = `;
+    state.innerText = `${firstNum} ${symbols[operType]} ${secondNum} = `;
 
     try {
         switch (result) {
