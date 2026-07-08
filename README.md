@@ -36,7 +36,7 @@ A modern, responsive, and fully functional web calculator built with HTML, CSS, 
 
 ## Steps to Run
 
-[![Open on Website](https://dawud-shuaibu.github.io/calculator/)](https://dawud-shuaibu.github.io/calculator/)
+[Open on Website](https://dawud-shuaibu.github.io/calculator/)
 
 1. Clone the repository:
    ```bash
