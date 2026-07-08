@@ -5,23 +5,16 @@ Thank you for your interest in contributing! 🙌 This project is open to everyo
 ## How to Contribute
 
 ### 1. Found a Bug?
-- Check the [Issues](https://github.com/your-username/calculator-web/issues) to see if it's already reported.
-- If not, open a new issue with:
+  - Open a new issue with:
   - A clear title
   - Description of the bug
-  - Steps to reproduce
   - Screenshots (if applicable)
-  - Browser and device info
+  - Browser info (if applicable)
 
-### 2. Want to Add a Feature or Fix Something?
-Great! Here's how:
+### 2. Adding Features or Fixing Bugs
 
 1. Fork the repository
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   # or
-   git checkout -b fix/your-fix-description
+2. Create a new branch: 
 3. Make your changes
 4. Test thoroughly.
 5. Commit with clear message.
